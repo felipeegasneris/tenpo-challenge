@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Proyecto Tenpo
 
-## Getting Started
+Este es un proyecto [Next.js](https://nextjs.org) iniciado con [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-First, run the development server:
+## Requisitos del Sistema
+
+- Node.js (versión 14 o superior)
+- npm (normalmente viene con Node.js)
+
+## Configuración del Proyecto
+
+1. Clona el repositorio:
+   ```bash
+   git clone [URL_DEL_REPOSITORIO]
+   cd tenpo
+   ```
+
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+## Iniciar el Servidor de Desarrollo
+
+Para iniciar el servidor de desarrollo, ejecuta:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) y logeate con las siguientes credenciales:
+- Usuario: `test@example.com`
+- Contraseña: `test123`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app`: Contiene las páginas y rutas de la aplicación.
+- `src/components`: Componentes reutilizables de React.
+- `src/hooks`: Hooks personalizados, incluyendo `usePokemonList`.
+- `src/lib`: Utilidades y configuraciones, como la configuración de la API.
+- `src/types`: Definiciones de tipos TypeScript.
 
-## Learn More
+## Características Principales
 
-To learn more about Next.js, take a look at the following resources:
+- Listado de Pokémon con scroll infinito.
+- Diseño responsive utilizando Tailwind CSS.
+- Integración con la API de Pokémon.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Algunas Consideraciones del Challenge
+- La mejor forma según mi criterio para mostrar la lista de 2000 elementos fue utilizando el scroll infinito y virtualizando los elementos que se muestran en la pantalla. eso permite que el usuario pueda ver los elementos sin tener que esperar a que se carguen todos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Como mejora a llamadas al backend propongo:
+  1. para la autenticación de usuarios, utilizar un servicio de autenticación como Firebase o Auth0. Esto permitirá una autenticación segura y escalable.
+  2.  para la capa de llamadas a API, si se quiere escalar propondria un BFF o un fedrador de graphQL. Esto permitirá escalar el consumo de las APIs a mas clientes por ejemplo una app mobile.
