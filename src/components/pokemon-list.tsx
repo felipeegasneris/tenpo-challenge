@@ -1,12 +1,12 @@
 'use client';
 
-import * as React from 'react';
+import { useRef, useEffect } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { PokemonCard } from '@/components/pokemon-card';
 import { usePokemonList } from '@/hooks/usePokemonList';
 
 export function PokemonList() {
-  const parentRef = React.useRef<HTMLDivElement>(null);
+  const parentRef = useRef<HTMLDivElement>(null);
   const { pokemons, isLoading, isError, fetchNextPage, hasNextPage, isFetchingNextPage } = usePokemonList();
 
   const virtualizer = useVirtualizer({
@@ -16,7 +16,7 @@ export function PokemonList() {
     overscan: 5,
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const [lastItem] = [...virtualizer.getVirtualItems()].reverse();
 
     if (!lastItem) {

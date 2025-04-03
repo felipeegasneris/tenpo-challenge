@@ -1,12 +1,12 @@
 'use client';
 
-import * as React from 'react';
+import { HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Pokemon } from '@/types/pokemon';
 import Image from 'next/image';
 
-interface PokemonCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface PokemonCardProps extends HTMLAttributes<HTMLDivElement> {
   pokemon: Pokemon;
 }
 
